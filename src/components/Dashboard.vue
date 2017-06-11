@@ -1,18 +1,15 @@
 <template>
   <div>
-    {{ msg }}
+    <history-summary></history-summary>
   </div>
 </template>
 
 <script>
-import store from '@/store'
+import HistorySummary from './History-Summary'
 export default {
-  store,
   name: 'hello',
-  computed: {
-    msg () {
-      return this.$store.state.hello
-    }
+  components: {
+    'history-summary': HistorySummary
   }
 }
 </script>
