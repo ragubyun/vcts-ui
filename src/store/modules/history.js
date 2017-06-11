@@ -32,7 +32,7 @@ export default {
           result[vcType].push({
             usdt_btc: Number(row.usdt_btc),
             price: Number(row.price),
-            amount: Number(row.amount),
+            units: Number(row.units),
             rate: Number(row.rate),
             total: Number(row.total),
             tradeID: row.tradeID,

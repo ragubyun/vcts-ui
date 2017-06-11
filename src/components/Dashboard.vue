@@ -12,6 +12,7 @@ export default {
   name: 'hello',
   created () {
     this.$store.dispatch('history/reload')
+    this.$store.dispatch('market/reload')
   },
   components: {
     'history-summary': HistorySummary
