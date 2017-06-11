@@ -1,6 +1,6 @@
 <template>
   <div>
-    <md-table v-once>
+    <md-table>
       <md-table-header>
         <md-table-row>
           <md-table-head>Type</md-table-head>
@@ -29,7 +29,7 @@ export default {
   name: 'history-table',
   computed: {
     summary () {
-      let tradeHistory = this.$store.state.history.trade
+      let tradeHistory = this.$store.getters['history/all']
       let summary = [{
         vcType: 'Total',
         sumBtc: 0,
@@ -48,6 +48,10 @@ export default {
           sumBtc: 0,
           sumUsdt: 0
         })
+        subsum.amount = Math.trunc(subsum.amount * 100000000) / 100000000
+        subsum.sumBtc = Math.trunc(subsum.sumBtc * 100000000) / 100000000
+        subsum.sumUsdt = Math.trunc(subsum.sumUsdt * 100000000) / 100000000
+
         summary[0].sumBtc += subsum.sumBtc
         summary[0].sumUsdt += subsum.sumUsdt
         summary.push(subsum)
